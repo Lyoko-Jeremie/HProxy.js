@@ -1,0 +1,16 @@
+﻿# nano /etc/systemd/system/HProxy.service
+
+[Unit]
+Description=H-Proxy Server Service
+Requires=network.target
+After=network.target
+
+[Service]
+Type=simple
+User=nobody
+Restart=always
+ExecStart=/usr/bin/node /usr/bin/HProxy/index.js -p 65287
+
+[Install]
+WantedBy=multi-user.target
+
